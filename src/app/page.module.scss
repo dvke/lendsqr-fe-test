@@ -1,0 +1,21 @@
+@use "@/styles/_colors" as *;
+
+@font-face {
+  font-family: "Avenir-Next";
+  src: url("/fonts/avenir-next/AvenirNextLTPro-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Avenir-Next";
+  src: url("/fonts/avenir-next/AvenirNextLTPro-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: bold;
+}
+
+.h1 {
+  font-family: "Avenir-Next", sans-serif;
+  font-size: 4rem;
+  color: $primary-color;
+}
