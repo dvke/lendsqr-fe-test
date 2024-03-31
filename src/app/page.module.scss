@@ -1,4 +1,5 @@
 @use "@/styles/_colors" as *;
+@import "@/styles/_breakpoints.scss";
 
 @font-face {
   font-family: "Avenir-Next";
@@ -16,10 +17,25 @@
 
 .login {
   font-family: "Avenir-Next", sans-serif;
-  margin: 4rem 4.1875rem 0 4.1875rem;
+  max-width: 1440px;
+  margin: 4rem auto;
+
+  @include breakpoint(mobile) {
+    margin: 0;
+    padding: 2rem;
+  }
+
+  @include breakpoint(desktop) {
+    margin: 6.25rem auto;
+  }
 
   .logo {
-    margin: 0 0 4.5625rem 3rem;
+    @include breakpoint(mobile) {
+      margin: 0 0 1rem 0;
+    }
+    @include breakpoint(tab-portrait) {
+      margin: 0 0 2rem 2rem;
+    }
   }
 
   .container {
@@ -27,9 +43,41 @@
     align-items: center;
     gap: 4.3125rem;
 
+    @include breakpoint(mobile) {
+      display: block;
+    }
+    @include breakpoint(tab-landscape) {
+      gap: 1rem;
+    }
+
+    img {
+      margin-top: 4rem;
+      @include breakpoint(mobile) {
+        display: none;
+      }
+      @include breakpoint(tab-portrait) {
+        display: none;
+      }
+      @include breakpoint(tab-landscape) {
+        display: none;
+      }
+      @include breakpoint(desktop) {
+        display: block;
+      }
+    }
+
     .form-container {
       margin: 0 6.245rem 0 6.25rem;
-      width: 50%;
+      width: 100%;
+
+      @include breakpoint(mobile) {
+        margin: 0 auto;
+        max-width: 27.9375rem;
+      }
+      @include breakpoint(tab-portrait) {
+        margin: 0 auto;
+        max-width: 27.9375rem;
+      }
 
       h1 {
         margin-bottom: 0.625rem;
@@ -51,19 +99,43 @@
           gap: 1.5rem;
           margin-bottom: 1.875rem;
 
-          input {
-            border: 2px solid rgba($input-color, 0.15);
-            outline: none;
-            padding: 1.09375rem 0 1.09375rem 1rem;
-            width: 100%;
-            font-family: inherit;
-            font-size: 0.875rem;
-            display: block;
-            border-radius: 5px;
-          }
-
+          .email-input,
           .password-input {
             position: relative;
+
+            input {
+              border: 2px solid rgba($input-color, 0.15);
+              outline: none;
+              padding: 1.09375rem 0 1.09375rem 1rem;
+              width: 100%;
+              font-family: inherit;
+              font-size: 0.875rem;
+              display: block;
+              border-radius: 5px;
+            }
+
+            label {
+              background-color: white;
+              outline: 3px solid white;
+              position: absolute;
+              top: 1.2rem;
+              left: 1rem;
+              color: rgba($input-color, 0.6);
+              font-size: 0.875rem;
+              font-weight: 400;
+              pointer-events: none;
+              transition: top 0.25s, font-size 0.25s, color 0.25s;
+            }
+
+            input:focus {
+              border-color: $secondary-color;
+            }
+
+            input:focus + label {
+              color: $secondary-color;
+              top: -0.5rem;
+              font-size: 0.75rem;
+            }
 
             .show {
               position: absolute;

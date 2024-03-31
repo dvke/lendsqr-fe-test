@@ -12,7 +12,7 @@ export default function Home() {
         height={36}
       />
       <div className={styles.container}>
-        <div className={styles["image-container"]}>
+        <div>
           <Image
             src={"/pablo-sign-in.png"}
             alt="sign-in"
@@ -26,11 +26,15 @@ export default function Home() {
 
           <form action="">
             <div className={styles["form-inputs"]}>
-              <input type="email" placeholder="Email" />
-              <span className={styles["password-input"]}>
-                <input type="passoword" placeholder="Password" />
-                <button className={styles.show}>SHOW</button>
-              </span>
+              <div className={styles["email-input"]}>
+                <input type="email" />
+                <label>Email</label>
+              </div>
+              <div className={styles["password-input"]}>
+                <input type="password" />
+                <label>Password</label>
+                <div className={styles.show}>SHOW</div>
+              </div>
               <p>FORGOT PASSWORD?</p>
             </div>
             <button className={styles["login-btn"]}>LOG IN</button>

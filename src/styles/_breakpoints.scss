@@ -1,0 +1,23 @@
+@mixin breakpoint($size) {
+  @if $size == mobile {
+    @media (max-width: 599px) {
+      @content;
+    }
+  } @else if $size == tab-portrait {
+    @media (min-width: 600px) {
+      @content;
+    }
+  } @else if $size == tab-landscape {
+    @media (min-width: 900px) {
+      @content;
+    }
+  } @else if $size == desktop {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  } @else if $size == desktop-large {
+    @media (min-width: 1800px) {
+      @content;
+    }
+  }
+}
