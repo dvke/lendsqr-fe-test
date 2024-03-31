@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.scss";
+import LoginForm from "@/components/LoginForm";
 
 export default function Home() {
   return (
@@ -20,26 +21,7 @@ export default function Home() {
             height={337.57}
           />
         </div>
-        <div className={styles["form-container"]}>
-          <h1>Welcome!</h1>
-          <p className={styles.instruction}>Enter details to login.</p>
-
-          <form action="">
-            <div className={styles["form-inputs"]}>
-              <div className={styles["email-input"]}>
-                <input type="email" />
-                <label>Email</label>
-              </div>
-              <div className={styles["password-input"]}>
-                <input type="password" />
-                <label>Password</label>
-                <div className={styles.show}>SHOW</div>
-              </div>
-              <p>FORGOT PASSWORD?</p>
-            </div>
-            <button className={styles["login-btn"]}>LOG IN</button>
-          </form>
-        </div>
+        <LoginForm />
       </div>
     </section>
   );
