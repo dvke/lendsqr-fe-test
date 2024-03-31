@@ -1,1 +1,8 @@
+@use "./_colors" as *;
 @import "_reset.scss";
+
+*,
+*::after,
+*::before {
+  @include reset;
+}
