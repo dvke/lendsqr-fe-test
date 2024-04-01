@@ -1,0 +1,81 @@
+@use "@/styles/_colors" as *;
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+.nav {
+  position: fixed;
+  padding: 2.188rem 4rem 2.188rem 1.875rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  font-family: "Work Sans", sans-serif;
+  background-color: #fff;
+  box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.04);
+
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 10.5125rem;
+  }
+
+  .logo {
+    width: 9.05rem;
+  }
+
+  .search-box {
+    width: max-content;
+    height: max-content;
+    position: relative;
+    margin-left: 0;
+
+    input {
+      border: 1px solid rgba($input-color, 0.15);
+      outline: none;
+      padding: 0.75rem 0 0.75rem 1rem;
+      width: 400px;
+      font-size: 0.875rem;
+      display: block;
+      border-radius: 8px;
+    }
+
+    span {
+      position: absolute;
+      padding: 12px 21px;
+      background-color: $secondary-color;
+      top: 0;
+      right: 0;
+      overflow: hidden;
+      border-radius: 0 8px 8px 0;
+    }
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 2.9375rem;
+
+    p {
+      color: $primary-color;
+      font-family: "Roboto", sans-serif;
+      text-decoration: underline;
+    }
+
+    .nav-user {
+      display: flex;
+      gap: 1.875rem;
+      align-items: center;
+
+      &__info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        p {
+          font-weight: 500;
+          text-decoration: none;
+          font-family: inherit;
+        }
+      }
+    }
+  }
+}
