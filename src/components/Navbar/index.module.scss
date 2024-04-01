@@ -1,9 +1,10 @@
 @use "@/styles/_colors" as *;
 @import url("https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import "@/styles/_breakpoints";
 
 .nav {
   position: fixed;
-  padding: 2.188rem 4rem 2.188rem 1.875rem;
+  padding: 2.188rem 1rem 2.188rem 1.875rem;
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -12,14 +13,52 @@
   background-color: #fff;
   box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.04);
 
+  @include breakpoint(desktop) {
+    padding-right: 4rem;
+    justify-content: space-between;
+  }
+
+  .hamburger {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+    display: none;
+    @include breakpoint(mobile) {
+      display: block;
+    }
+    @include breakpoint(tab-portrait) {
+      display: block;
+    }
+    @include breakpoint(desktop) {
+      display: none;
+    }
+  }
+
   .left {
     display: flex;
     align-items: center;
-    gap: 10.5125rem;
+    gap: 5rem;
+
+    @include breakpoint(desktop) {
+      gap: 10.5125rem;
+    }
   }
 
   .logo {
     width: 9.05rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the logo */
+
+    @include breakpoint(desktop) {
+      position: static;
+      border: none;
+      top: 0;
+      left: 0;
+      transform: translate(0, 0);
+    }
   }
 
   .search-box {
@@ -27,6 +66,12 @@
     height: max-content;
     position: relative;
     margin-left: 0;
+
+    display: none;
+
+    @include breakpoint(desktop) {
+      display: block;
+    }
 
     input {
       border: 1px solid rgba($input-color, 0.15);
@@ -52,12 +97,38 @@
   .right {
     display: flex;
     align-items: center;
-    gap: 2.9375rem;
+    gap: 1.25rem;
+    scale: 0.9;
+
+    @include breakpoint(desktop) {
+      gap: 2.9375rem;
+      scale: 1;
+    }
+
+    @include breakpoint(mobile) {
+      gap: 0.8rem;
+    }
+
+    span {
+      cursor: pointer;
+      color: $primary-color;
+      font-size: 1.55rem;
+      display: block;
+
+      @include breakpoint(desktop) {
+        display: none;
+      }
+    }
 
     p {
       color: $primary-color;
       font-family: "Roboto", sans-serif;
       text-decoration: underline;
+      display: none;
+
+      @include breakpoint(tab-landscape) {
+        display: block;
+      }
     }
 
     .nav-user {
@@ -65,15 +136,25 @@
       gap: 1.875rem;
       align-items: center;
 
+      @include breakpoint(mobile) {
+        gap: 0.8rem;
+      }
+
       &__info {
         display: flex;
         align-items: center;
         gap: 10px;
+        position: relative;
 
         p {
           font-weight: 500;
           text-decoration: none;
           font-family: inherit;
+          display: none;
+
+          @include breakpoint(tab-landscape) {
+            display: block;
+          }
         }
       }
     }

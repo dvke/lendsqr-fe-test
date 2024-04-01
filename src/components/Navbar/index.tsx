@@ -1,14 +1,18 @@
-import React from "react";
 import Image from "next/image";
-import styles from "./index.module.scss";
-import SearchIcon from "../../../public/icons/search-icon";
-import NotificationsIcon from "../../../public/icons/notifications-icon";
-import DropdownMenuIcon from "../../../public/icons/dropdown-menu-icon";
 import Link from "next/link";
+import { IoIosSearch } from "react-icons/io";
+import DropdownMenuIcon from "../../../public/icons/dropdown-menu-icon";
+import HamburgerIcon from "../../../public/icons/hamburger-icon";
+import NotificationsIcon from "../../../public/icons/notifications-icon";
+import SearchIcon from "../../../public/icons/search-icon";
+import styles from "./index.module.scss";
 
 const Navbar = () => {
   return (
     <nav className={styles.nav}>
+      <button className={styles.hamburger}>
+        <HamburgerIcon />
+      </button>
       <div className={styles.left}>
         <Link href={"/"}>
           <Image
@@ -28,15 +32,27 @@ const Navbar = () => {
       </div>
 
       <div className={styles["right"]}>
+        <span>
+          <IoIosSearch />
+        </span>
         <p>Docs</p>
         <div className={styles["nav-user"]}>
           <div>
             <NotificationsIcon />
           </div>
           <div className={styles["nav-user__info"]}>
-            <Image src={"/avatar.svg"} alt="avatar" width={48} height={48} />
+            <Image
+              className={styles.avatar}
+              src={"/avatar.svg"}
+              alt="avatar"
+              width={48}
+              height={48}
+            />
             <p>Adedeji</p>
             <DropdownMenuIcon />
+            {/* <div className={styles["nav-user__info-dropdown"]}>
+              <p>Adedeji</p>
+            </div> */}
           </div>
         </div>
       </div>
