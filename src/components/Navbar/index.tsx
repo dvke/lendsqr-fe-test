@@ -1,17 +1,23 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { IoIosSearch } from "react-icons/io";
+import { IoIosClose, IoIosSearch } from "react-icons/io";
 import DropdownMenuIcon from "../../../public/icons/dropdown-menu-icon";
 import HamburgerIcon from "../../../public/icons/hamburger-icon";
 import NotificationsIcon from "../../../public/icons/notifications-icon";
 import SearchIcon from "../../../public/icons/search-icon";
 import styles from "./index.module.scss";
+import { useSidebar } from "@/context/SidebarContext";
 
 const Navbar = () => {
+  // Sidebar context
+  const { toggleSidebar, isSidebarOpen } = useSidebar();
+
   return (
     <nav className={styles.nav}>
-      <button className={styles.hamburger}>
-        <HamburgerIcon />
+      <button className={styles.hamburger} onClick={toggleSidebar}>
+        {!isSidebarOpen ? <HamburgerIcon /> : <IoIosClose size={40} />}
       </button>
       <div className={styles.left}>
         <Link href={"/"}>

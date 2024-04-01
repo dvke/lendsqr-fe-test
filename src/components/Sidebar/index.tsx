@@ -27,11 +27,16 @@ import styles from "./index.module.scss";
 import { usePathname } from "next/navigation";
 import TireIcon from "../../../public/icons/tire-icon";
 import SignOutIcon from "../../../public/icons/sign-out-icon";
+import { useSidebar } from "@/context/SidebarContext";
 
 const Sidebar = () => {
   // const pathname = usePathname();
+  const { isSidebarOpen } = useSidebar();
+
   return (
-    <aside className={styles.container}>
+    <aside
+      className={`${styles.container} ${isSidebarOpen ? styles.open : ""}`}
+    >
       <button className={styles["org-switch"]}>
         <BriefcaseIcon />
         <span>Switch Organization</span>

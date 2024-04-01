@@ -1,25 +1,33 @@
 @use "@/styles/_colors" as *;
+@import "@/styles/_breakpoints";
 
 .container {
   font-family: "Work Sans", sans-serif;
-  width: max-content;
+  width: 283px;
   padding-top: 2.4375rem;
   height: calc(100% - 7.5rem);
   background-color: white;
-  margin-top: 7.5rem;
+  margin-top: 7.47rem;
   overflow: auto;
   position: fixed;
+  font-size: 1rem;
+  transform: translateX(-283px);
+  transition: all 0.25s ease-in-out;
+
+  @include breakpoint(desktop) {
+    transform: translateX(0px);
+  }
 
   .org-switch {
     background-color: #fff;
     border: none;
     font-family: inherit;
-    margin: 0 2.9375rem 3.25rem 1.875rem;
+    margin: 0 1.9375rem 3.25rem 1.875rem;
+    font-size: inherit;
     display: flex;
     gap: 10px;
     align-items: center;
     cursor: pointer;
-    font-size: 1.25rem;
     color: $primary-color;
   }
 
@@ -81,7 +89,6 @@
           font-family: inherit;
           text-decoration: none;
           color: $light-primary-color;
-          font-size: 1.15rem;
         }
       }
     }
@@ -93,6 +100,7 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    color: $primary-color;
 
     button {
       cursor: pointer;
@@ -101,10 +109,16 @@
       display: flex;
       align-items: center;
       gap: 1rem;
+      color: inherit;
     }
 
     .version-number {
       margin-top: auto;
+      font-size: 0.75rem;
     }
   }
+}
+
+.open {
+  transform: translateX(0);
 }
