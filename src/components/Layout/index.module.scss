@@ -5,7 +5,8 @@
   main {
     background-color: #fbfbfb;
     width: 100vw;
-    height: 100vh;
+    border: 1px solid red;
+    height: max-content;
     padding: 10rem 2rem;
     font-family: "Work Sans", sans-serif;
     @include breakpoint(desktop) {

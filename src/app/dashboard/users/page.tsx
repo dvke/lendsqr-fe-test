@@ -5,6 +5,9 @@ import UsersPageIcon from "../../../../public/icons/users-page-icon";
 import ActiveUsersIcon from "../../../../public/icons/active-users-icon";
 import UserLoansIcon from "../../../../public/icons/users-loans-icon";
 import UsersSavingsIcon from "../../../../public/icons/users-savings-icon";
+import DataTable from "@/components/DataTable";
+import data from "@/utils/data";
+import { columns } from "@/components/DataTable/columns";
 
 const UsersPage = () => {
   return (
@@ -39,7 +42,7 @@ const UsersPage = () => {
           <p className={styles["summary-card__total"]}>102,453</p>
         </div>
       </div>
-      {/* <DataTable data={data} columns={columns} /> */}
+      <DataTable data={data} columns={columns} />
     </Dashboard>
   );
 };
