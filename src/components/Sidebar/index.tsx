@@ -52,7 +52,7 @@ const Sidebar = () => {
           <li
             className={`${styles["list-item"]} ${styles["list-item--active"]}`}
           >
-            <Link href={"/dashboard"}>
+            <Link href={"/dashboard/users"}>
               <UserFriendsIcon />
               Users
             </Link>
