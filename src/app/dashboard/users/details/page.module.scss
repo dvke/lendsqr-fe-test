@@ -1,0 +1,88 @@
+@use "@/styles/_colors" as *;
+@import "@/styles/_breakpoints.scss";
+
+.user-details {
+  a {
+    display: flex;
+    gap: 13px;
+    align-items: center;
+    font-family: inherit;
+    text-decoration: none;
+    color: $input-color;
+    margin-bottom: 1.625rem;
+    width: max-content;
+
+    > * {
+      font-size: 1.85rem;
+    }
+  }
+
+  .user-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+
+    @include breakpoint(mobile) {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: $primary-color;
+
+      @include breakpoint(mobile) {
+        font-size: 1rem;
+      }
+    }
+
+    .user-actions {
+      display: flex;
+      gap: 1.25rem;
+
+      @include breakpoint(mobile) {
+        flex-direction: column;
+      }
+
+      button {
+        cursor: pointer;
+        font-family: inherit;
+        padding: 0.75rem 1.875rem;
+        font-size: 0.875;
+        font-weight: 600;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 8px;
+        background-color: #fff;
+        letter-spacing: 2px;
+        transition: all 0.25s ease-out;
+
+        @include breakpoint(mobile) {
+          font-size: 12px;
+          width: 100%;
+        }
+      }
+
+      .user-action-blacklist {
+        color: #e4033b;
+        border-color: #e4033b;
+
+        &:hover {
+          background-color: #e4033b;
+          color: white;
+        }
+      }
+
+      .user-action-activate {
+        color: #39cdcc;
+        border-color: #39cdcc;
+
+        &:hover {
+          background-color: #39cdcc;
+          color: white;
+        }
+      }
+    }
+  }
+}
