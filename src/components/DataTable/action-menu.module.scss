@@ -1,0 +1,49 @@
+@use "@/styles/_colors" as *;
+
+.action-menu {
+  .trigger {
+    font-size: 21px;
+    color: $input-color;
+    margin-bottom: -8px;
+    cursor: pointer;
+  }
+
+  .more-icon {
+    font-size: 21px;
+    color: $input-color;
+    margin-bottom: -8px;
+    cursor: pointer;
+  }
+
+  ul {
+    top: 2.7rem;
+    left: -7rem;
+    padding: 1.25rem;
+    z-index: 999;
+    background-color: #fff;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 11.25rem;
+    gap: 1.25rem;
+    border: 1px solid rgba($input-color, 0.04);
+    box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+
+    li {
+      display: flex;
+      gap: 8px;
+      color: $input-color;
+      font-weight: 500;
+      font-size: 14px;
+
+      a {
+        display: flex;
+        gap: 8px;
+        font-family: inherit;
+        text-decoration: none;
+        color: $input-color;
+      }
+    }
+  }
+}

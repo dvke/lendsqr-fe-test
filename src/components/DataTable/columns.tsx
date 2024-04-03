@@ -6,6 +6,8 @@ import styles from "./columns.module.scss";
 import { UserData } from "@/types/types";
 import { FiMoreVertical } from "react-icons/fi";
 import "./columns.module.scss";
+import ActionMenu from "./action-menu";
+import { useState } from "react";
 
 enum Status {
   Pending = "pending",
@@ -62,8 +64,20 @@ export const columns: ColumnDef<UserData>[] = [
     id: "actions",
     cell: ({ row }) => {
       const data = row.original;
+      const [menuIsOpen, setMenuIsOpen] = useState(false);
 
-      return <FiMoreVertical className={styles["more-icon"]} />;
+      return (
+        <div className={styles.action}>
+          <FiMoreVertical
+            // onClick={() => handleViewActions(user.id)}
+            onClick={() => setMenuIsOpen(!menuIsOpen)}
+            className={styles["action__btn"]}
+          />
+          <div className={styles["action__menu"]}>
+            <ActionMenu open={menuIsOpen} />
+          </div>
+        </div>
+      );
     },
   },
 ];

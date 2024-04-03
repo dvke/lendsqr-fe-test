@@ -26,9 +26,17 @@
   }
 }
 
-.more-icon {
-  font-size: 21px;
-  color: $input-color;
-  margin-bottom: -8px;
-  cursor: pointer;
+.action {
+  &__btn {
+    font-size: 21px;
+    color: $input-color;
+    margin-bottom: -8px;
+    cursor: pointer;
+  }
+
+  &__menu {
+    position: absolute;
+    right: -0.688rem;
+    translate: 0 2rem;
+  }
 }
