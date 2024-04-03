@@ -1,0 +1,128 @@
+@use "@/styles/_colors" as *;
+@import "@/styles/_breakpoints.scss";
+
+.table-section {
+  width: 100%;
+
+  @include breakpoint(mobile) {
+    margin-bottom: 2.5rem;
+  }
+
+  &__container {
+    margin-bottom: 1.25rem;
+    background-color: #fff;
+    box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba($primary-color, 0.06);
+    padding: 0 1.875rem;
+    border-radius: 4px;
+    overflow: auto;
+    width: 100%;
+  }
+
+  table {
+    border-spacing: 0 25px;
+    z-index: 15;
+
+    @include breakpoint(mobile) {
+      width: 64.8125rem;
+    }
+
+    @include breakpoint(tab-portrait) {
+      width: 64.8125rem;
+    }
+
+    @include breakpoint(desktop) {
+      width: 67rem;
+    }
+
+    thead {
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: $input-color;
+
+      th {
+        span {
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
+
+          button {
+            background: none;
+            padding: 0;
+            border: none;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid rgba($input-color, 0.1);
+
+        td {
+          color: $input-color;
+          font-size: 0.875rem;
+
+          hr {
+            width: 100%;
+            margin-top: 1.5rem;
+            border: 1px solid rgba($input-color, 0.1);
+          }
+        }
+      }
+    }
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+
+    @include breakpoint(mobile) {
+      align-items: flex-start;
+    }
+
+    &-view {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      @include breakpoint(mobile) {
+        flex-wrap: wrap;
+      }
+
+      p {
+        font-size: 0.875rem;
+        color: $input-color;
+      }
+
+      &__dropdown {
+        display: flex;
+        gap: 1.125rem;
+        align-items: center;
+        background-color: rgba($primary-color, 0.1);
+        padding: 7px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 5rem;
+        font-family: inherit;
+
+        select {
+          border: none;
+          outline: none;
+          background-color: transparent;
+          width: 100%;
+          font-weight: 500;
+          color: $primary-color;
+        }
+      }
+    }
+  }
+
+  .filter {
+    position: absolute;
+    top: 4rem;
+    left: 1rem;
+  }
+}

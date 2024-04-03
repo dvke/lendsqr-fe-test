@@ -1,0 +1,33 @@
+@use "@/styles/_colors" as *;
+
+.pagination {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-family: inherit;
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgba($primary-color, 0.6);
+    font-weight: 500;
+  }
+
+  &-btn > * {
+    background-color: rgba($primary-color, 0.1);
+    border-radius: 4px;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: $primary-color;
+    padding: 0.35rem;
+  }
+
+  :disabled > * {
+    color: rgba($primary-color, 0.6);
+  }
+
+  .active {
+    color: $primary-color;
+  }
+}

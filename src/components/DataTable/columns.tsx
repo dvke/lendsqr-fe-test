@@ -63,7 +63,7 @@ export const columns: ColumnDef<UserData>[] = [
     cell: ({ row }) => {
       const data = row.original;
 
-      return <FiMoreVertical />;
+      return <FiMoreVertical className={styles["more-icon"]} />;
     },
   },
 ];

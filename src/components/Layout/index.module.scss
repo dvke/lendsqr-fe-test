@@ -4,8 +4,7 @@
 .container {
   main {
     background-color: #fbfbfb;
-    width: 100vw;
-    border: 1px solid red;
+    width: calc(100vw - 1.1rem);
     height: max-content;
     padding: 10rem 2rem;
     font-family: "Work Sans", sans-serif;

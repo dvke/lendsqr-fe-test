@@ -3,10 +3,13 @@ import {
   ColumnDef,
   flexRender,
   getCoreRowModel,
+  getPaginationRowModel,
   useReactTable,
 } from "@tanstack/react-table";
 import { IoFilterOutline } from "react-icons/io5";
 import styles from "./index.module.scss";
+import { useState } from "react";
+import Pagination from "./pagination";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -21,7 +24,17 @@ const DataTable = <TData, TValue>({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
   });
+
+  console.log(table.getPageCount());
+
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const handlePageChange = (newPage: number) => {
+    table.setPageIndex(newPage);
+    setCurrentPage(newPage);
+  };
 
   return (
     <section className={styles["table-section"]}>
@@ -86,8 +99,13 @@ const DataTable = <TData, TValue>({
               ))}
             </select>
           </div>
-          <p>Out of {data.length}</p>
+          <p>out of {data.length}</p>
         </div>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={table.getPageCount()}
+          onPageChange={handlePageChange}
+        />
       </div>
     </section>
   );
