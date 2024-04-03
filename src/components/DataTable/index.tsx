@@ -10,6 +10,7 @@ import { IoFilterOutline } from "react-icons/io5";
 import styles from "./index.module.scss";
 import { useState } from "react";
 import Pagination from "./pagination";
+import Filter from "./filter";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -27,8 +28,7 @@ const DataTable = <TData, TValue>({
     getPaginationRowModel: getPaginationRowModel(),
   });
 
-  console.log(table.getPageCount());
-
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
 
   const handlePageChange = (newPage: number) => {
@@ -52,7 +52,9 @@ const DataTable = <TData, TValue>({
                       )}
                       {i !== table.getHeaderGroups()[0].headers.length - 1 && (
                         <>
-                          <button>
+                          <button
+                            onClick={() => setIsFilterOpen(!isFilterOpen)}
+                          >
                             <IoFilterOutline />
                           </button>
                         </>
@@ -107,6 +109,11 @@ const DataTable = <TData, TValue>({
           onPageChange={handlePageChange}
         />
       </div>
+      {isFilterOpen && (
+        <div className={styles.filter}>
+          <Filter />
+        </div>
+      )}
     </section>
   );
 };

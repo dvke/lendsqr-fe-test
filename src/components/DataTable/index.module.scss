@@ -3,11 +3,18 @@
 
 .table-section {
   width: 100%;
+  position: relative;
+  border: rgba($primary-color, 0.6);
 
   @include breakpoint(mobile) {
     margin-bottom: 2.5rem;
   }
 
+  .filter {
+    position: absolute;
+    top: 4rem;
+    left: 1rem;
+  }
   &__container {
     margin-bottom: 1.25rem;
     background-color: #fff;
