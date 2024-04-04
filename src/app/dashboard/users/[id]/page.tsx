@@ -15,8 +15,8 @@ interface Props {
 
 const UserDetails = ({ params }: Props) => {
   const userId = parseInt(params.id);
-  const user = data.find((userObject) => userObject.id === userId);
-  console.log(user);
+  // const user = data.find((userObject) => userObject.id === userId);
+  // console.log(user);
   return (
     <Dashboard>
       <section className={styles["user-details"]}>

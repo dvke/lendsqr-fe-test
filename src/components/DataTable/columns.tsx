@@ -18,11 +18,11 @@ enum Status {
 
 export const columns: ColumnDef<UserData>[] = [
   {
-    accessorKey: "organization",
+    accessorKey: "employmentDetails.organization",
     header: "Organization",
   },
   {
-    accessorKey: "username",
+    accessorKey: "userName",
     header: "Username",
   },
   {
