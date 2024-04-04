@@ -74,7 +74,7 @@ export const columns: ColumnDef<UserData>[] = [
             className={styles["action__btn"]}
           />
           <div className={styles["action__menu"]}>
-            <ActionMenu open={menuIsOpen} />
+            <ActionMenu user={data} open={menuIsOpen} />
           </div>
         </div>
       );
