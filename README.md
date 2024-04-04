@@ -1,4 +1,4 @@
-[Lendsqr Frontend Developer Assessment Project](https://uchenna-obiekwe-lendsqr-fe-test.netlify.app/)
+# [Lendsqr Frontend Developer Assessment Project](https://uchenna-obiekwe-lendsqr-fe-test.netlify.app/)
 
 ## Description:
 
@@ -11,7 +11,7 @@ This project is a frontend clone of the Lendsqr Admin Console, designed as an as
 3. **User Page :** Displays a list of users pulled from a mock API with 500 records.
 4. **User Details Page :** Displays detailed information about a specific user, utilizing local storage to store and retrieve user details.
 
-## Technologies Used:
+## Technology Stack:
 
 - **Next.js:** This React framework was chosen for its server-side rendering (SSR) capabilities. SSR improves initial page load performance and SEO by providing pre-rendered HTML to the browser. Additionally, Next.js offers a well-defined file-based routing system and features for data fetching, making it a great choice for building scalable single-page applications (SPAs).
 - **SCSS Modules:** SCSS Modules were utilized for styling, offering modularization and encapsulation of styles, which enhances maintainability and reduces the risk of style conflicts.
