@@ -1,7 +1,7 @@
 import { UserData } from "@/types/types";
 import { useState } from "react";
 
-export const useMenu = () => {
+export const UseMenu = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [userData, setUserData] = useState<UserData | null>(null);
 

@@ -8,7 +8,7 @@ import { FiMoreVertical } from "react-icons/fi";
 import "./columns.module.scss";
 import ActionMenu from "./action-menu";
 import { useState } from "react";
-import { useMenu } from "@/hooks/useMenu";
+import { UseMenu } from "@/hooks/useMenu";
 
 enum Status {
   Pending = "pending",
@@ -65,7 +65,7 @@ export const columns: ColumnDef<UserData>[] = [
     id: "actions",
     cell: ({ row }) => {
       const data = row.original;
-      const { menuIsOpen, toggleMenu, userData } = useMenu(); // Use the custom hook
+      const { menuIsOpen, toggleMenu, userData } = UseMenu(); // Use the custom hook
 
       return (
         <div className={styles.action}>
