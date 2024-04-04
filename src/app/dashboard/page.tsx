@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import { Metadata } from "next";
 import React, { ReactNode } from "react";
 
 type Props = {

@@ -1,9 +1,11 @@
+import LoginForm from "@/components/LoginForm";
 import Image from "next/image";
 import styles from "./page.module.scss";
-import LoginForm from "@/components/LoginForm";
-import Navbar from "@/components/Navbar";
-import Sidebar from "@/components/Sidebar";
-import Layout from "@/components/Layout";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Login - Lendsqr-fe-test",
+};
 
 export default function Home() {
   return (

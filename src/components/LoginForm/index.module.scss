@@ -34,6 +34,10 @@
       gap: 1.5rem;
       margin-bottom: 1.875rem;
 
+      .error {
+        color: red;
+      }
+
       .email-input,
       .password-input {
         position: relative;
