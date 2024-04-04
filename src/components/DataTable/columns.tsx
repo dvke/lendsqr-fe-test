@@ -8,6 +8,7 @@ import { FiMoreVertical } from "react-icons/fi";
 import "./columns.module.scss";
 import ActionMenu from "./action-menu";
 import { useState } from "react";
+import { useMenu } from "@/hooks/useMenu";
 
 enum Status {
   Pending = "pending",
@@ -64,20 +65,16 @@ export const columns: ColumnDef<UserData>[] = [
     id: "actions",
     cell: ({ row }) => {
       const data = row.original;
-      const [menuIsOpen, setMenuIsOpen] = useState(false);
+      const { menuIsOpen, toggleMenu, userData } = useMenu(); // Use the custom hook
 
-      const handleClick = (userData: UserData) => {
-        setMenuIsOpen(!menuIsOpen);
-        localStorage.setItem("userData", JSON.stringify(userData)); // Store data as JSON string
-      };
       return (
         <div className={styles.action}>
           <FiMoreVertical
-            onClick={() => handleClick(data)} // Pass user data to handleClick
+            onClick={() => toggleMenu(data)}
             className={styles["action__btn"]}
           />
           <div className={styles["action__menu"]}>
-            <ActionMenu user={data} open={menuIsOpen} />
+            <ActionMenu user={userData!} open={menuIsOpen} />
           </div>
         </div>
       );

@@ -36,7 +36,7 @@ const UserDetails = ({ params }: Props) => {
     const d = usersData.find((object) => object.id.toString() === params.id);
 
     setUserData(d);
-  }, [usersData]);
+  }, [usersData, params.id]);
 
   return (
     <Dashboard>
