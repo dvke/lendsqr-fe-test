@@ -29,3 +29,7 @@ export interface UserData {
     relationship: string;
   };
 }
+
+export interface CardProps {
+  userData: UserData | undefined;
+}
