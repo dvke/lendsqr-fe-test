@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "./page.module.scss";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Login - Lendsqr-fe-test",
 };
 
