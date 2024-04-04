@@ -11,6 +11,7 @@ import data, { fetchUserData } from "@/utils/data";
 import { columns } from "@/components/DataTable/columns";
 import { UserData } from "@/types/types";
 import { ClockLoader, ScaleLoader } from "react-spinners";
+import Layout from "@/components/Layout";
 
 const UsersPage = () => {
   const [usersData, setUsersData] = useState<UserData[]>([]);
@@ -50,7 +51,7 @@ const UsersPage = () => {
     }
   };
   return (
-    <Dashboard>
+    <Layout>
       <h1 className={styles.header}>Users</h1>
       <div className={styles.summary}>
         <div className={styles["summary-card"]}>
@@ -88,7 +89,7 @@ const UsersPage = () => {
       ) : (
         <DataTable data={usersData} columns={columns} />
       )}
-    </Dashboard>
+    </Layout>
   );
 };
 

@@ -9,6 +9,7 @@ import styles from "./page.module.scss";
 import UserCard from "./user-card";
 import DetailsCard from "./details-card";
 import { ClockLoader } from "react-spinners";
+import Layout from "@/components/Layout";
 
 interface Props {
   params: { id: string };
@@ -39,7 +40,7 @@ const UserDetails = ({ params }: Props) => {
   }, [usersData, params.id]);
 
   return (
-    <Dashboard>
+    <Layout>
       <section className={styles["user-details"]}>
         <Link href={"/dashboard/users"}>
           <HiArrowLongLeft />
@@ -69,7 +70,7 @@ const UserDetails = ({ params }: Props) => {
           </>
         )}
       </section>
-    </Dashboard>
+    </Layout>
   );
 };
 
