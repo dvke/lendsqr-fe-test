@@ -66,11 +66,14 @@ export const columns: ColumnDef<UserData>[] = [
       const data = row.original;
       const [menuIsOpen, setMenuIsOpen] = useState(false);
 
+      const handleClick = (userData: UserData) => {
+        setMenuIsOpen(!menuIsOpen);
+        localStorage.setItem("userData", JSON.stringify(userData)); // Store data as JSON string
+      };
       return (
         <div className={styles.action}>
           <FiMoreVertical
-            // onClick={() => handleViewActions(user.id)}
-            onClick={() => setMenuIsOpen(!menuIsOpen)}
+            onClick={() => handleClick(data)} // Pass user data to handleClick
             className={styles["action__btn"]}
           />
           <div className={styles["action__menu"]}>

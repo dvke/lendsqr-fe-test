@@ -10,30 +10,45 @@ import DataTable from "@/components/DataTable";
 import data, { fetchUserData } from "@/utils/data";
 import { columns } from "@/components/DataTable/columns";
 import { UserData } from "@/types/types";
+import { ClockLoader, ScaleLoader } from "react-spinners";
 
 const UsersPage = () => {
-  const [userData, setUserData] = useState<UserData[]>([]);
+  const [usersData, setUsersData] = useState<UserData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<unknown>(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      setError(null);
-
+    // Improve performance with caching
+    const cachedData = localStorage.getItem("usersData");
+    if (cachedData) {
       try {
-        const fetchedData = await fetchUserData();
-        setUserData(fetchedData);
+        const parsedData = JSON.parse(cachedData); // Parse JSON string
+        setUsersData(parsedData);
+        setIsLoading(false); // Data already loaded from cache
       } catch (error) {
-        console.error("Error fetching data:", error);
-        setError(error); // Handle errors appropriately (e.g., display error message)
-      } finally {
-        setIsLoading(false);
+        console.error("Error parsing cached data:", error);
+        fetchData(); // Fallback to fetching data
       }
-    };
-
-    fetchData();
+    } else {
+      fetchData(); // No cached data, fetch data
+    }
   }, []);
+
+  const fetchData = async () => {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const fetchedData = await fetchUserData();
+      setUsersData(fetchedData);
+      localStorage.setItem("usersData", JSON.stringify(fetchedData)); // Store data in local storage
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setError(error); // Handle errors
+    } finally {
+      setIsLoading(false);
+    }
+  };
   return (
     <Dashboard>
       <h1 className={styles.header}>Users</h1>
@@ -67,9 +82,11 @@ const UsersPage = () => {
         </div>
       </div>
       {isLoading ? (
-        <p>loading...</p>
+        <div className={styles.loading}>
+          <ClockLoader color={"#39cdcc"} />
+        </div>
       ) : (
-        <DataTable data={userData} columns={columns} />
+        <DataTable data={usersData} columns={columns} />
       )}
     </Dashboard>
   );
