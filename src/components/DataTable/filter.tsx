@@ -18,18 +18,12 @@ const Filter = () => {
         Username
         <span className={styles["form__input-box"]}>
           <input type="text" placeholder="User" />
-          <span className={styles["form-icon"]}>
-            <IoIosArrowDown />
-          </span>
         </span>
       </label>
       <label htmlFor="">
         Email
         <span className={styles["form__input-box"]}>
           <input type="text" placeholder="Email" />
-          <span className={styles["form-icon"]}>
-            <IoIosArrowDown />
-          </span>
         </span>
       </label>
       <label htmlFor="">
@@ -45,9 +39,6 @@ const Filter = () => {
         Phone Number
         <span className={styles["form__input-box"]}>
           <input type="text" placeholder="Phone Number" />
-          <span className={styles["form-icon"]}>
-            <IoIosArrowDown />
-          </span>
         </span>
       </label>
       <label htmlFor="">
